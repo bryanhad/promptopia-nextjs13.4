@@ -19,9 +19,7 @@ const handler = NextAuth({
             const sessionUser = await User.findOne({
                 email: session.user.email,
             })
-
             session.user.id = sessionUser._id.toString()
-
             return session
         },
         // sign in method that automatically creeates the user if not registered in the db
